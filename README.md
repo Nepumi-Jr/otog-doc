@@ -1,10 +1,12 @@
-  <div style="text-align:center">
+<head>
+  <center>
   
   <h1><img src="res/miniDonut.png" /> One Tambon One Grader</h1>
   <img src="res/Hands.png" />
   <h1>คู่มือการใช้ OTOG สำหรับ ADMIN</h1>
   <h2><i>OTOG User Guide for ADMIN  </i></h2>
-  </div>
+  </center>
+</head>
 
 # สารบัญ
 
