@@ -1,8 +1,10 @@
-<p style="text-align: center;">
-  <h1><img src="res/miniDonut.png" /> One Tambon One Grader</h1>
+
+<h1><img src="res/miniDonut.png" /> One Tambon One Grader</h1>
+<p align="center">
   <img src="res/Hands.png" />
-  <h1>คู่มือการใช้ OTOG สำหรับ ADMIN</h1>
-  <h2><i>OTOG User Guide for ADMIN  </i></h2>
+</p>
+<p align="center">
+  คู่มือการใช้ OTOG สำหรับ ADMIN<br><i>OTOG User Guide for ADMIN</i>
 </p>
 
 # สารบัญ
