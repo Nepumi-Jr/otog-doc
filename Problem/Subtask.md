@@ -22,16 +22,16 @@
 {
   "testList": "[1,2][3,4,5][6,7,8,9,10]",
   "options": {
-    "1": {
+    1: {
       "group": false,
       "score": 30
     },
-    "2": {
+    2: {
       "group": true,
       "score": 70,
       "require": 1
     },
-    "3": {
+    3: {
       "group": false,
       "score": 70,
       "require": [1, 2]
