@@ -6,15 +6,7 @@
   คู่มือการใช้ OTOG สำหรับ ADMIN<br><i>OTOG User Guide for ADMIN</i>
 </p>
 
-# สารบัญ
+# [🔗WIKI (Click me!)](https://github.com/phakphum-dev/otog-doc/wiki)
 
-## โจทย์ขั้นปกติ
-
-- [✏ การสร้างโจทย์ทั่วไป](/Problem/BasicProblem.md)
-
-## โจทย์ขั้นสูง
-
-- [💯Custom Script (สคริปตรวจ)](/Problem/CustomScript.md)
-- [🔗Subtask (การมัดเทสเคส)](/Problem/Subtask.md)
 
 ### This user guide is available only in Thai language.
