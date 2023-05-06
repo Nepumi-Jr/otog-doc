@@ -131,10 +131,66 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+### สคริปของพี่กฤษฏิ์ (ข้อ 566 is_substr_semicolon)
+
+```cpp
+#include <bits/stdc++.h>
+#define __SOURCE_LIMMIT__ 1000000000
+#define __RESERVE_WORD__  {{"goto", 0}, {"while", 1}, {"define", 0}, {"if", 0}, {"#include", 1}, {"stdio.h", 1}, {"string.h", 0}, {"stdlib.h", 0}, {";", 3}}
+#define __NOT_ALLOW_CPP__
+using namespace std;
+
+std::ofstream result("grader_result.txt");
+void correct(){
+    ::result << 'P';
+    ::exit(0);
+}
+void wrong(){
+    ::result << 'W';
+    ::exit(0);
+}
+int main(int argc, char * argv[]){
+    std::ifstream sol(argv[1]);     //OPEN SOLUTION FILE
+    std::ifstream inp(argv[2]);     //OPEN INPUT    FILE
+    std::ifstream cod(argv[3]);     //OPEN SOURCE   FILE
+    std::ifstream out("output.txt");//OPEN USER'S OUTPUT FILE
+
+#ifdef __NOT_ALLOW_CPP__
+    if (char c = std::string(argv[3]).back()
+        ; c == 'p' || c == 'P') ::wrong();
+#endif
+#ifdef __SOURCE_LIMMIT__
+    cod.seekg(0, std::ios_base::end);
+    if (cod.tellg() > __SOURCE_LIMMIT__) ::wrong();
+    cod.clear();
+    cod.seekg(0, std::ios_base::beg);
+#endif
+#ifdef __RESERVE_WORD__
+    std::string code, tmp;
+    while (cod >> tmp) code += tmp;
+    code.erase (std::remove(code.begin(), code.end(), '\\'), code.end());
+    for (auto [str, cnt] :     std::map<std::string, int>__RESERVE_WORD__){
+        for (auto it = code.begin(); it != code.end(); ++it){
+            if (std::equal(str.begin(), str.end(), it) and !cnt--){
+                ::wrong();
+    }}}
+#endif
+    bool good_sol = true;
+    bool good_out = true;
+    std::string str_sol, str_out;
+    std::ios_base::sync_with_stdio(0);
+    do{
+        good_sol = bool(sol >> str_sol);
+        good_out = bool(out >> str_out);
+    }while (good_sol and good_out and str_sol == str_out);
+    if (!good_sol and !good_out) correct(); // read to end
+    else wrong();
+}
+```
+
 ซึ่งอาจดูเยอะ ดูยาว แต่สคริปนี้มีประโยชน์อยู่มากๆๆๆๆๆๆ
 
 ```cpp
-...
 #include <algorithm>
 
 //#define __NOT_ALLOW_CPP__
@@ -142,8 +198,15 @@ int main(int argc, char* argv[]) {
 //#define __RESERVE_WORD__ "for", "while", "loop"
 
 using namespace std;
-...
 ```
+
+ซึ่งในส่วนของ
+
+```cpp
+#define __RESERVE_WORD__ 
+```
+
+สามารถทำได้โดยการใส่เป็น `std::map<string, int>` โดย key ของ map คือการกำหนดคำต้องห้ามในโปรแกรม และ int จะเป็นจำนวนครั้งที่สามารถพบได้ในโปรแกรม เช่น ในสคริปของพี่กฤษฏิ์ (ข้อ [566 is_substr_semicolon](https://api.otog.cf/problem/doc/566)) `{"goto", 0}` หมายถึง ห้ามมีคำว่า `goto` อยู่ในโปรแกรม และ `{";", 3}` หมายถึง สามารถมีคำว่า `;` ได้ 3 ครั้ง เป็นต้น
 
 ทั้ง 3 การ `#define` เป็นการเพิ่มเงื่อนไขโจทย์เพื่อให้ยากขึ้น โดย...
 
